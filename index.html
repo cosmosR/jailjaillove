@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>너는 갇힌거야...</title>
+
+    <!-- Include Google Material Icons styles -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    
+
+    <style>
+        @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard-Regular';
+            background-color: rgb(18, 58, 55);
+           
+        }
+
+        .wrap {
+            position: absolute;
+            top: 30vw;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            width: 1500px;
+            
+        }
+
+        .material-icons-outlined {
+            font-size: 5rem; /* Preferred icon size */
+            display: inline-block;
+            
+        }
+
+        .system{
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 80px;
+            
+        }
+        .l-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .s-text {
+            font-size: 1rem;
+            margin-bottom: 75px;
+        }
+
+        .inform{
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .mum{
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        #dynamic{
+            position: relative;
+            display: inline-block;
+
+        }
+
+        #dynamic::after{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 4px;
+            height: 100%;
+            background-color: white;
+        }
+
+        #dynamic.active::after{
+            display: none;
+        }
+
+        .finger{
+            cursor: pointer;
+        }
+
+        .finger:hover
+        {
+            cursor: url(touchapp.png) 20 30, auto;
+        }
+
+        .screen {
+            display: block;
+        }
+
+        .onblock {
+            display: none;
+        }
+
+        .first{
+            border: 10pt ridge #3e645c;
+                    padding: 50px;
+        }
+
+        .second{
+            width: 1000px;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            
+            
+        }
+
+        .third {
+            display: none;
+            background: url(bgchansal.png);
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            width: 1500px;
+            height: 845px;
+            }
+
+
+            .forth{
+                display: none;
+            background: url(bglight.png);
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            width: 1500px;
+            height: 845px;
+            }
+
+        .atext {
+                font-size: 2rem;
+                line-height: 2rem;
+                color: black;
+                border: 3px solid #121212;
+                background-color: #fff;
+                box-shadow: 5px 5px 5 #121212;
+                z-index: 10;
+                }
+
+        .btext {
+                font-size: 2rem;
+                line-height: 2rem;
+                color: black;
+                border: 3px solid #121212;
+                background-color: #fff;
+                box-shadow: 5px 5px 5 #121212;
+                z-index: 10;
+                top: 45%;
+                left: 18%;
+                }
+            
+            
+            /* @keyframes flowBg {
+                from{ 
+                    background-position: 0 0;
+                }
+                to{
+                    background-position: -50vw 0;
+                }
+                
+            } */
+
+            @keyframes falling {to{top: -556px;}}
+
+            @keyframes moon {from{display: none;}to{display: block;}}
+
+            #Chan {
+                top: -2072px;
+                left: -491px;
+
+            }
+
+            #door {
+                width: 250px;
+                display: none;
+                left: 22vw;
+                
+            }
+            #messa {
+                width: 350px;
+                top: 609px;
+                right: -548px;
+                
+                
+            }
+
+            #mall{
+                width: 500px;
+                position: absolute;
+                top: -19vw;
+                left: 17vw;
+                z-index: 11;
+                display: none;
+                
+                
+            }
+
+            .arrowRight{
+                margin-top: 500px;
+                font-size: 10rem;
+                margin-left: 20vw;
+                width: 200px;
+                z-index: 12;
+                position: absolute;
+
+            }
+
+            .arrowRight:hover
+            {
+                cursor: url(touchapp.png) 20 30, auto;
+            }
+                 
+
+            #lastText
+            { 
+                font-size: 1.4rem;
+                    color: white;
+                    text-align: left;
+                    line-height: 35px;
+                    background: black;
+                    margin-left: 100px;
+            }
+
+            #resultText
+            {
+                font-size: 2rem;
+                text-align: center;
+                background-color: black;
+                color:white;
+                line-height: 50px;
+                position: absolute;
+                top: 30vw;
+                left: 50vw;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                z-index: 20;
+                
+            }
+            #overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7); /* 검은색 배경색 및 투명도 설정 */
+                z-index: 1;
+            }
+        
+
+
+
+        
+        /* 커서 사라지기 */
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="first screen">
+        <p id="dynamic" class="system"></p>
+        
+        <p class="l-text ">지문이 등록된 이용자만 접근 가능합니다.</p>
+        <p class="s-text">지문 인식을 해주세요</p>
+        <p class="mum">(중간에 이상한 메세지는 뭐지? 내 지문이 등록돼있을리는 없지만 한번 해볼까?...)</p>
+      
+        <div onclick="toggleScreen()" class="material-icons-outlined finger" >
+            fingerprint
+        </div>
+        
+        </div>
+
+
+        <div class="second">
+            <div class="Agroup">
+                <p class="atext"></p>
+                
+                <img class="door" id="door" src="door.png" style="position: absolute" onclick="ChanFall">
+                
+                <img  class="Chan" id="Chan" src="chansal.png" style="position: absolute;">
+                <div class="mallwrap" >
+                <img class="mall" id="mall" src="mall.png" onclick="toggleScreen2()">
+                </div>
+
+                <!-- <div class="a2">네? 저를 왜 기다려요 첨 뵙는데요 저는...</div>
+                <div class="a3">아니 그리고 왜 제 지문이 등록돼있죠?? 여긴 뭐하는 곳이죠? </div>
+
+                <div class="a4">뭐야 왜이러세요? 왜 나를 가두는거죠??!!</div>
+
+                <div class="a5">다시는 사람을 아프게 하지 말도록. 특히 그 입으로 말이야.</div>
+
+                <div class="a6">뭐라고?? 내가 뭘했다고 그래!!!! 꺼내줘!!!</div>
+            </div>
+            
+            <div class="Cgroup">
+                <div class="c1">이제 와서 말하는 거지만... 미안합니다</div>
+
+                <div class="c2">???:이봐</div>
+                <div class="c3">억울하지 않아? 너도 상처를 주긴 했는데, 어차피 남들도 다 상처를 주고 다니잖아? 그런데 왜 너만 여기와서 고통 받으며 죽어가는 거지?</div>
+                <div class="c4">여기에 지금 너에게 상처를 준 사람의 이름을 적어라. 그 사람을 여기도 유도하지. 아. 물론 지문도 등록할 것이야.</div>
+
+                <prompt>내 평생 저주하는 이름을 적자. 나만 당하긴 억울하잖아</prompt>
+
+                <div class="c5">...알겠네 그럼 편히 쉬게나</div> -->
+            </div>
+
+        </div>
+
+
+        <div class="third">
+            <p class="btext"></p>
+            
+            <!-- <div onclick="toggleScreen3()" class="material-icons-outlined arrowRight" >arrow_circle_right</div> -->
+            <!-- 다음으로 버튼 -->
+            <img src="next.png" class="arrowRight" onclick="toggleScreen3(); displayNextText();">
+            <div class="Bgroup">
+
+                
+                <!-- <div class="b1">감옥에 갇힌지 2주 정도 지났다.</div>
+                <div class="b2">아니...지난게 맞나? 빛으로 시간을 확인하는 거라 정확하지 않아</div>
+                <div class="b3">어라...? 저 창살이 원래... 부서져 있던가...</div>
+                <div class="b4">저 창문을 통해 나갈 수 있을 것 같은데... 힘이 있었더라면...</div>
+                <div class="b5">입으로 사람을 아프게 하지 말라고 했었나? 내가...그랬었나 기억이 나지 않아 
+                    누구든 나에게 상처받은 이가 있다면 꼭 사과하고 싶어... 이제와선 안되겠지...
+                </div> -->
+                <!-- <div class="Cgroup">
+                    <div class="c1">이제 와서 말하는 거지만... 미안합니다</div>
+    
+                    <div class="c2">???:이봐</div>
+                    <div class="c3">억울하지 않아? 너도 상처를 주긴 했는데, 어차피 남들도 다 상처를 주고 다니잖아? 그런데 왜 너만 여기와서 고통 받으며 죽어가는 거지?</div>
+                    <div class="c4">여기에 지금 너에게 상처를 준 사람의 이름을 적어라. 그 사람을 여기도 유도하지. 아. 물론 지문도 등록할 것이야.</div>
+    
+                    <prompt>내 평생 저주하는 이름을 적자. 나만 당하긴 억울하잖아</prompt>
+    
+                    <div class="c5">...알겠네 그럼 편히 쉬게나</div> --> 
+            </div>
+
+        </div>
+        <div class="forth">
+            
+            <img class="messa" id="messa" src="messa.png" style="position: relative" onclick="showPrompt()">
+
+            <div id="lastText"></div>
+            <div id="overlay"></div>
+            <p id="resultText">입력된 이름이 나타날 곳입니다.</p>
+
+        </div>
+    </div>
+
+
+
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
